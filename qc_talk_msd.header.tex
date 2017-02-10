@@ -5,7 +5,11 @@
 \usepackage{graphicx}		% graphic support
 \usepackage{braket}			% nice bras and kets
 %\usepackage{listings}		% nice source code presentation
-\usepackage{cite}
+%\usepackage{cite}
 \usepackage{amssymb}		% needed by scrartcl for mathfrak etc.
+
+\usepackage[backend=biber,citestyle=verbose]{biblatex}
+\usepackage{bibgerm} 		% umlauts in BibTeX
+\addbibresource{Bibliography/diplomathesis.bib}
 
 \newcommand{\mbeq}{\overset{!}{=}}	% "mbeq": must be equal

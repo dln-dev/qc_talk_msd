@@ -1,0 +1,5 @@
+[0] Config.pm:354> INFO - This is Biber 2.6
+[0] Config.pm:357> INFO - Logfile is 'Bibliography/diplomathesis.bib.blg'
+[118] biber:302> INFO - === Do Feb  9, 2017, 23:08:29
+[243] Utils.pm:180> ERROR - Cannot find control file 'Bibliography/diplomathesis.bib.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[244] Biber.pm:113> INFO - ERRORS: 1
