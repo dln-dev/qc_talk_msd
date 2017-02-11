@@ -5,7 +5,7 @@
 \author{dln-dev}
 \date{February 13th 2017}
 %\logo{\includegraphics[width=\textwidth]{Images/switch_square}}
-\titlegraphic{\includegraphics[width=0.1\textwidth]{Images/switch_square}}
+%\titlegraphic{\includegraphics[width=0.1\textwidth]{Images/switch_square}}
 
 \frame{\titlepage}
 }
@@ -101,8 +101,9 @@
 %		\end{column}
 %	\end{columns}
 	\vspace*{1.0cm}
-	Linear input growth $\rightarrow$ Exponential system demand\\
-	Bad!
+	\uncover<2->{Linear input growth $\rightarrow$ Exponential system demand\\
+	\vspace*{0.2cm}
+	Bad!}
 \end{frame}}
 
 \begin{center}
@@ -111,8 +112,11 @@
 
 \noindent text
 
+
 \section{Quantum Computation}
+
 \subsection{Qubits}
+
 \mode<presentation>{\begin{frame}{Qubits}\label{qubits}
 	\begin{itemize}
 		\item $2$ distinguishable states $\ket{0}$ and $\ket{1}$
@@ -141,7 +145,7 @@
 			\centering\vspace*{0.3cm}
    			\begin{itemize}
    				\item Probability to find $\ket{0}$
-   					\[\text{p}(\ket{0}) = \ket{0}\braket{0|\Psi} = |\alpha|^2\]
+   					\[\text{p}(\ket{0}) = \braket{\Psi|0}\braket{0|\Psi} = |\alpha|^2\]
    				\item Probability to find $\ket{0}$ or $\ket{1}$
    					\[\text{p}(\ket{0})+\text{p}(\ket{1}) = |\alpha|^2 + |\beta|^2 = 1\]
    				\item States are normalized 
@@ -162,18 +166,19 @@
 \noindent text
 
 
+\subsection{Quantum Register}
 \mode<presentation>{\begin{frame}[t]{Quantum Register}\label{qregister}
 	\begin{itemize}
 		\item Classical: cartesian product of state spaces
 			\[S^\text{full} = S_1 \times S_2 \times \dots \times S_N\] 
 		\[\text{dim}(S^\text{full}) = N\cdot f\]
 		\item Quantum: tensor product of Hilbert spaces
-			\[\mathbb{H}^{\text{full}} = \mathbb{H}_1 \otimes \mathbb{H}_2 \otimes \dots \otimes \mathbb{H}_N\] 
+			\[\mathcal{H}^{\text{full}} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \dots \otimes \mathcal{H}_N\] 
 	\end{itemize}
 	\begin{exampleblock}{}
 		\setlength\abovedisplayskip{-8pt}
 		\begin{center}
-			$\text{dim}(\mathbb{H}^{full}) = f^N$
+			$\text{dim}(\mathcal{H}^{full}) = f^N$
 		\end{center}
 	\end{exampleblock}
 \end{frame}}
@@ -218,10 +223,10 @@
 	\begin{itemize}
 		\item Step 1: Partition the register
 			\[\ket{00000} \rightarrow \ket{0000;0} \]
-		\item Step 2: Full input Superposition 
-			\[\ket{\Psi} = \frac{1}{\sqrt{N}}(\ket{0000;0} + \ket{0001;0} + \dots + \ket{1111;0}) = \frac{1}{\sqrt{N}}\sum^{2^N-1}_{a=0}\ket{a;0}\]
-		\item Step 3: Apply quantum gates
-			\[U_f\ket{\hat{\Psi}} = \sum^{2^N-1}_{a=0}\ket{a;f(a)} = \frac{1}{\sqrt{N}}(\ket{0000;f(0000)} + \ket{0001;f(0001)} + \dots)\]
+		\uncover<2->{\item Step 2: Full input Superposition 
+			\[\ket{\Psi} = \frac{1}{\sqrt{N}}(\ket{0000;0} + \ket{0001;0} + \dots + \ket{1111;0}) = \frac{1}{\sqrt{N}}\sum^{2^N-1}_{a=0}\ket{a;0}\]}
+		\uncover<3->{\item Step 3: Apply quantum gates
+			\[U_f\ket{\hat{\Psi}} = \sum^{2^N-1}_{a=0}\ket{a;f(a)} = \frac{1}{\sqrt{N}}(\ket{0000;f(0000)} + \ket{0001;f(0001)} + \dots)\]}
 		%\item Step 4: Extract result
 	\end{itemize}
 	%$\rightarrow$ Result is calculated on all input states at once!
@@ -232,6 +237,7 @@
 \end{center}
 
 \noindent text
+
 
 \subsection{Result Extraction}
 
@@ -279,7 +285,7 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\centering
-    		\includegraphics[trim=0 0 0 0mm, width=0.8\textwidth]{Images/exampled-wave}
+    		\uncover<2->{\includegraphics[trim=0 0 0 0mm, width=0.8\textwidth]{Images/exampled-wave}}
 		\end{column}
 	\end{columns}
 	\footnotesize\textcolor{tugreen}{$\blacktriangleright$}\,\,\cite{Denchev2015}\normalsize
@@ -323,6 +329,9 @@
 
 \noindent text
 
+
+\subsection{Realization}
+
 \mode<presentation>{\begin{frame}[t]{D-Wave 2000Q}\label{dwave}
 	\begin{columns}[T]
 		\begin{column}{0.5\textwidth}
@@ -365,12 +374,12 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\centering
-			Transmons \\
+			\uncover<2->{Transmons \\
 			\vspace{0.3cm}
     		\includegraphics[trim=0 0 0 0mm, width=0.9\textwidth]{Images/ibm-cryo.jpg} \\
     		\vspace*{1.0cm}
     		\includegraphics[trim=0 0 0 0mm, width=0.95\textwidth]{Images/ibm-composer} \\
-    		Cloud-accessible!
+    		Cloud-accessible!}
 		\end{column}
 	\end{columns}
 	\vspace*{0.3cm}
@@ -384,6 +393,8 @@
 \noindent text
 
 \section{Spin Networks}
+
+\subsection{Role in Quantum Computing}
 
 \mode<presentation>{\begin{frame}[t]{QC Architecture}\label{architecture}
 	\begin{columns}[T]
@@ -495,15 +506,17 @@
 \noindent text
 
 
+\subsection{Perfect State Transfer}
+
 \mode<presentation>{\begin{frame}{Identifying PST Graphs}\label{identifyPST}
 	\begin{exampleblock}{}
 	\setlength\abovedisplayskip{-8pt}
 	\begin{center}
-		$\text{e}^{-iH2t} \mbeq \mathfrak{1}$	
+		$\text{e}^{-\text{i}H2t} \mbeq \text{1}$	
 	\end{center}
 	\end{exampleblock}
 	\begin{itemize}
-		\item Restrict $\mathbb{H}$ to single excitation space
+		\item Restrict $\mathcal{H}$ to single excitation space $\rightarrow$ adjacency matrix
 		\item PST then means
 			\begin{align*}
 	\begin{pmatrix}
@@ -525,7 +538,7 @@
 	\begin{exampleblock}{}
 	\setlength\abovedisplayskip{-8pt}
 	\begin{center}
-		$\text{e}^{-iHt} \mbeq P_\pi$	
+		$\text{e}^{-\text{i}Ht} \mbeq P_\pi$	
 	\end{center}
 	\end{exampleblock}
 \end{frame}}
@@ -541,7 +554,7 @@
 	\begin{exampleblock}{}
 	\setlength\abovedisplayskip{-8pt}
 	\begin{center}
-		$A_{G\times H} = A_G \otimes \mathfrak{1}_{\left|V_H\right|} + \mathfrak{1}_{\left|V_G\right|} \otimes A_H$
+		$A_{G\times H} = A_G \otimes \text{1}_{\left|V_H\right|} + \text{1}_{\left|V_G\right|} \otimes A_H$
 	\end{center}
 	\end{exampleblock}
 	\begin{columns}[T]
@@ -596,6 +609,7 @@
 \noindent text
 
 
+\subsection{Quantum Routing}
 
 \mode<presentation>{\begin{frame}{Quantum Routing}\label{routing}
 	\begin{exampleblock}{}
@@ -680,6 +694,7 @@
 \noindent text
 
 
+\subsection{Designing Networks}
 
 \mode<presentation>{\begin{frame}{Higher Excitation Spaces}\label{hes}
 	\begin{columns}[T]
@@ -754,7 +769,7 @@
 \noindent text
 
 
-\mode<presentation>{\begin{frame}{The Method}\label{method}
+\mode<presentation>{\begin{frame}{Network Construction}\label{method}
 	\begin{columns}[T]
 		\begin{column}{0.5\textwidth}
 		\begin{center}
@@ -785,9 +800,9 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/method7-solution-2chain3} \\
+			\uncover<2->{\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/method7-solution-2chain3} \\
 			\vspace*{0.8cm}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.45\textwidth]{Images/method7-solution-chain2square-hes2} \\
+			\includegraphics[trim=0mm 0 0 0mm, width=0.45\textwidth]{Images/method7-solution-chain2square-hes2}}
 			%\vspace*{0.3cm}
 			%\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/eg-pentaarmstar-uniform}
 		\end{center}
@@ -805,9 +820,10 @@
 
 \mode<presentation>{\begin{frame}{Conclusion}\label{conclusion}
 	\begin{itemize}
-		\item Designing networks for defined system topologies is possible 
-		\item If these networks are realizable is questionable
+		\item Exponential speedup for some problems
 		\item Some classical algorithms may be impossible to implement on QC
+		\item Designing networks for defined system topologies is possible 
+		\item Realization of most networks questionable		
 	\end{itemize}
 \end{frame}}
 
@@ -816,7 +832,6 @@
 \end{center}
 
 \noindent text
-
 
 
 \end{document}
